@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>Apai-IO Demo Site</title>
+
+  <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootstrap.css" />
+  <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootswatch.css" />
+  <link rel="stylesheet" href="{{ app.request.basepath }}/fancybox/jquery.fancybox.css" />
+</head>
+
+<body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+ <div class="navbar navbar-fixed-top">
+   <div class="navbar-inner">
+     <div class="container-fluid">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></a>
+       <a class="brand" href="#">ApaiIO Demo</a>
+       <div class="nav-collapse collapse" id="main-menu">
+        <ul class="nav pull-right" id="main-menu-right">
+          <li><a rel="tooltip" target="_blank" href="https://github.com/Exeu/apai-io" title="View it on github">View it on Github <i class="icon-share"></i></a></li>
+        </ul>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="container-fluid">
+ <header class="jumbotron subhead" id="overview">
+  <div class="subform">
+    <form class="well form-inline" id="search-form">
+      <div class="control-group">
+        {{ form_label(form.search) }}
+        {{ form_widget(form.search, { 'attr': {'class': 'input-xlarge'}}) }}
+	  </div>
+
+	   <div class="control-group">
+         {{ form_label(form.category) }}
+         {{ form_widget(form.category) }}
+       </div>
+
+       <div class="control-group">
+         {{ form_label(form.locale) }}
+         {{ form_widget(form.locale) }}
+	   </div>
+
+	   {{ form_rest(form) }}
+
+	   <div class="form-actions">
+           <button type="submit" class="btn btn-primary" id="search-action" data-uri="{{ app.request.basepath }}/api/search">Go!</button>
+       </div>
+  </form>
+  </div>
+ </header>
+
+ <div class="row">
+	<div id="iso">
+	  <div class="item well">
+	  	<h3>The Matrix</h3>
+	  	<div style="width: 100%; height: 50px; background-image: url('http://ecx.images-amazon.com/images/I/41Vi8Auf4ML._SL160_.jpg'); background-size: 100%;">&nbsp;</div>
+	  </div>
+	</div>
+ </div>
+ </div>
+
+  <script type="text/javascript" src="{{ app.request.basepath }}/js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="{{ app.request.basepath }}/js/jquery.isotope.min.js"></script>
+  <script type="text/javascript" src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{ app.request.basepath }}/js/jquery.smooth-scroll.min.js"></script>
+  <script type="text/javascript" src="{{ app.request.basepath }}/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="{{ app.request.basepath }}/js/bootswatch.js"></script>
+  <script type="text/javascript" src="{{ app.request.basepath }}/js/page.js"></script>
+
+  <script>
+	var endpoint = "{{ app.request.basepath }}";
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+<h3>{{ result['Items']['Item']['ItemAttributes']['Title'] }}</h3>
+
+
+{% if result['Items']['Item']['EditorialReviews']['EditorialReview']['Content'] is not empty %}
+	Amazon review
+	<div class="well">
+	{{ result['Items']['Item']['EditorialReviews']['EditorialReview']['Content']|raw }}
+	</div>
+{% endif %}
