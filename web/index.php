@@ -34,7 +34,7 @@ $app->register(new TwigServiceProvider(), array(
 		'twig.path' => __DIR__.'/../views',
 		'twig.options' => array(
 			'debug' => true,
-			//'cache' => __DIR__.'/../cache/view_cache'
+			'cache' => __DIR__.'/../cache/view_cache'
 		)
 ));
 
