@@ -503,3 +503,11 @@ body .one .bsa_it_p {
 	color: #000;
 	font-weight: bold;
 }
+
+.subform {
+	min-height: 90px !important;
+}
+
+.subform .well {
+	min-height: 35px !important;
+}
