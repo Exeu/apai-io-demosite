@@ -45,7 +45,8 @@ class SearchType extends AbstractType
 				'co.jp' => 'Japan',
 				'co.uk' => 'United Kingdom'
 			)
-		));
+		))
+		->add('page', 'text');
 	}
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver)

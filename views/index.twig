@@ -26,26 +26,21 @@
  <header class="jumbotron subhead" id="overview">
   <div class="subform">
     <form class="well form-inline" id="search-form">
-      <div class="control-group">
         {{ form_label(form.search) }}
         {{ form_widget(form.search, { 'attr': {'class': 'input-xlarge'}}) }}
-	  </div>
 
-	   <div class="control-group">
-         {{ form_label(form.category) }}
-         {{ form_widget(form.category) }}
-       </div>
+        {{ form_label(form.category) }}
+        {{ form_widget(form.category, { 'attr': {'class': 'input-small'}}) }}
 
-       <div class="control-group">
-         {{ form_label(form.locale) }}
-         {{ form_widget(form.locale) }}
-	   </div>
+        {{ form_label(form.locale) }}
+        {{ form_widget(form.locale, { 'attr': {'class': 'input-small'}}) }}
 
-	   {{ form_rest(form) }}
+        {{ form_label(form.page) }}
+        {{ form_widget(form.page, { 'attr': {'class': 'input-mini'}}) }}
 
-	   <div class="form-actions">
-           <button type="submit" class="btn btn-primary" id="search-action" data-uri="{{ app.request.basepath }}/api/search">Go!</button>
-       </div>
+        {{ form_rest(form) }}
+
+        <button type="submit" class="btn btn-primary" id="search-action" data-uri="{{ app.request.basepath }}/api/search">Go!</button>
   </form>
   </div>
  </header>

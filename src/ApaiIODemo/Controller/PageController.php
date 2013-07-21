@@ -18,7 +18,7 @@ class PageController
 
 	public function index(Application $app, Request $request)
 	{
-		$form = $app['form.factory']->create(new SearchType());
+		$form = $app['form.factory']->create(new SearchType(), array('page' => 1));
 
 		return $app['twig']->render('index.twig', array(
 				'form' => $form->createView()

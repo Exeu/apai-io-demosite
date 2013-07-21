@@ -71,7 +71,8 @@ class ApiController
 			$search
 				->setCategory($formData['category'])
 				->setKeywords($formData['search'])
-				->setResponseGroup(array('Large'));
+				->setResponseGroup(array('Large'))
+				->setPage((int) $formData['page']);
 
 			$result = $app['apaiio']->runOperation($search, $conf);
 
