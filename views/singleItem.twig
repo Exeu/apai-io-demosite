@@ -1,0 +1,7 @@
+{% for item in result %}
+<div class="item well span4">
+<h3>{{ item.title }}</h2>
+<img src="{{ item.img }}" class="img-polaroid">
+<h3><a class="various fancybox.ajax" href="{{ app.request.basepath }}/api/lookup/{{ item.asin }}/{{ locale }}">Click here for more details</a></h3>
+</div>
+{% endfor %}

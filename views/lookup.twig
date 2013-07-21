@@ -1,9 +1,69 @@
-<h3>{{ result['Items']['Item']['ItemAttributes']['Title'] }}</h3>
+<div class="row-fluid">
 
+<div class="span8">
+	<h2>{{ result.title }}</h2>
+	<strong>Product Group:</strong> {{ result.productGroup }}
 
-{% if result['Items']['Item']['EditorialReviews']['EditorialReview']['Content'] is not empty %}
-	Amazon review
-	<div class="well">
-	{{ result['Items']['Item']['EditorialReviews']['EditorialReview']['Content']|raw }}
+	{% if result.features is not empty %}
+		<h3>Features</h3>
+		{% for feature in result.features %}
+			<div>
+				{{ feature }}
+			</div>
+		{% endfor %}
+	{% endif %}
+
+	{% if result.editoriealReviews is not empty %}
+		<h3>Editorial reviews</h3>
+		<div class="accordion" id="accordion2">
+		{% for key,review in result.editoriealReviews %}
+			  <div class="accordion-group">
+			    <div class="accordion-heading">
+			      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ key }}">
+			        <i class="icon-plus"></i> Review - {{ review[:20]|striptags|trim }}...
+			      </a>
+			    </div>
+			    <div id="collapse{{ key }}" class="accordion-body collapse">
+			      <div class="accordion-inner">
+			        {{ review|raw }}
+			      </div>
+			    </div>
+			  </div>
+		{% endfor %}
+		</div>
+	{% endif %}
+
+	{% if result.reviews is not empty %}
+		<h3>Customer reviews</h3>
+		<iframe src="{{ result.reviews }}" width="100%" height="200px" />
+	{% endif %}
+</div>
+
+<div class="span4">
+	<div class="detail-context-box">
+		<a href="{{ result.detailPageUrl }}" target="_blank">View it on Amazon</a><br />
 	</div>
-{% endif %}
+
+	{%  if result.offerSummary.newPrice is not empty %}
+	<div class="detail-context-box">
+		<h3>Lowest new price</h3>
+		<span class="price">{{ result.offerSummary.newPrice }}</span>
+	</div>
+	{% endif %}
+
+	{%  if result.offerSummary.usedPrice is not empty %}
+	<div class="detail-context-box">
+		<h3>Lowest used price</h3>
+		<span class="price">{{ result.offerSummary.usedPrice }}</span>
+	</div>
+	{% endif %}
+
+	{%  if result.largeImageUrl is not empty %}
+	<div class="detail-context-box">
+		<img src="{{ result.largeImageUrl }}" width="100%" />
+	</div>
+	{% endif %}
+</div>
+
+
+</div>

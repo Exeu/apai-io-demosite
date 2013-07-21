@@ -1,3 +1,29 @@
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
 section {
 	margin-top: 60px;
 	padding-top: 100px;
@@ -432,8 +458,48 @@ body .one .bsa_it_p {
 	}
 }
 
-div.item {
-float: left;
-min-height: 1px;
-margin-left: 20px;
+.well {
+	min-height: 250px;
+}
+
+.item h3 {
+	text-shadow: 3px -1px 3px rgba(0, 0, 0, 1);
+	color: #fff;
+	background: rgba(0,0,0,0.5);
+	text-align: center;
+}
+
+.item .information-container {
+    text-shadow: 3px -1px 3px rgba(0, 0, 0, 1);
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.detail-context-box {
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #202328;
+	border: 1px solid #101214;
+	text-align: center;
+}
+
+.detail-context-box h3 {
+	color: #fff;
+	margin: 0 0 20px 0;
+}
+
+.detail-context-box span.price {
+	margin-top: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+}
+.detail-context-box strong {
+    color: #fff;
+}
+
+.accordion a {
+	color: #000;
+	font-weight: bold;
 }
