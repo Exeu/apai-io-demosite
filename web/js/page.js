@@ -3,6 +3,14 @@ $(document).ready(function() {
 	$('button#search-action').on('click', function(e) {
 		e.preventDefault();
 
+		ga('send', {
+			'hitType': 'event',
+			'eventCategory': 'button',
+			'eventAction': 'click',
+			'eventLabel': 'search button',
+			'eventValue': $('input#searchform_search').val()
+		});
+
 		$.post($(this).data('uri'), $("#search-form").serialize()).done(function(data) {
 			var container = $(data);
 
