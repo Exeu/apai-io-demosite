@@ -24,8 +24,26 @@ $(document).ready(function() {
 		});
 	});
 
+	$(document).on('click', 'a.accordion-toggle', function(e) {
+		ga('send', {
+			'hitType': 'event',
+			'eventCategory': 'product feature',
+			'eventAction': 'click',
+			'eventLabel': 'toggle',
+			'eventValue': 1
+		});
+	});
+
 	$(document).on('click', 'a.various', function (e) {
 		e.preventDefault();
+
+		ga('send', {
+			'hitType': 'event',
+			'eventCategory': 'product detial',
+			'eventAction': 'click',
+			'eventLabel': 'view',
+			'eventValue': 1
+		});
 
 		$.fancybox.open($(this), {
 			maxWidth	: 800,
