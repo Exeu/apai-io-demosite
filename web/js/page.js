@@ -5,10 +5,10 @@ $(document).ready(function() {
 
 		ga('send', {
 			'hitType': 'event',
-			'eventCategory': 'button',
+			'eventCategory': 'search button',
 			'eventAction': 'click',
-			'eventLabel': 'search button',
-			'eventValue': $('input#searchform_search').val()
+			'eventLabel': $('input#searchform_search').val(),
+			'eventValue': 1
 		});
 
 		$.post($(this).data('uri'), $("#search-form").serialize()).done(function(data) {
