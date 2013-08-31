@@ -1,4 +1,20 @@
 <?php
+/*
+ * Copyright 2013 Jan Eichhorn <exeu65@googlemail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 namespace ApaiIODemo\ResponseTransformer;
 
 use ApaiIO\ResponseTransformer\ResponseTransformerInterface;
@@ -60,26 +76,27 @@ class ItemLookupResponseTransformer implements ResponseTransformerInterface
     $offerSummary = $elementXpath->query('//Item/OfferSummary');
 
     if ($offerSummary->length > 0) {
-    	$offerSummaryElement = $offerSummary->item(0);
+        $offerSummaryElement = $offerSummary->item(0);
 
-		$newPrice = $offerSummaryElement->getElementsByTagName('LowestNewPrice');
+        $newPrice = $offerSummaryElement->getElementsByTagName('LowestNewPrice');
 
-		if ($newPrice->length > 0) {
-			$output['offerSummary']['newPrice'] = $newPrice->item(0)->getElementsByTagName('FormattedPrice')->item(0)->nodeValue;
-		}
+        if ($newPrice->length > 0) {
+            $output['offerSummary']['newPrice'] = $newPrice->item(0)->getElementsByTagName('FormattedPrice')->item(0)->nodeValue;
+        }
 
-		$usedPrice = $offerSummaryElement->getElementsByTagName('LowestUsedPrice');
+        $usedPrice = $offerSummaryElement->getElementsByTagName('LowestUsedPrice');
 
-		if ($usedPrice->length > 0) {
-			$output['offerSummary']['usedPrice'] = $usedPrice->item(0)->getElementsByTagName('FormattedPrice')->item(0)->nodeValue;
-		}
+        if ($usedPrice->length > 0) {
+            $output['offerSummary']['usedPrice'] = $usedPrice->item(0)->getElementsByTagName('FormattedPrice')->item(0)->nodeValue;
+        }
     }
 
     $reviews = $elementXpath->query('//Item/CustomerReviews');
 
     if ($reviews->length > 0) {
-		$output['reviews'] = $reviews->item(0)->getElementsByTagName('IFrameURL')->item(0)->nodeValue;
+        $output['reviews'] = $reviews->item(0)->getElementsByTagName('IFrameURL')->item(0)->nodeValue;
     }
+
     return $output;
   }
 }
