@@ -46,7 +46,8 @@ class SearchType extends AbstractType
                 "Tools" => "Tools",
                 "Toys" => "Toys",
                 "VHS" => "VHS",
-                "VideoGames" => "VideoGames"
+                "VideoGames" => "VideoGames",
+                "UnboxVideo" => "Video on Demand"
             )
         ))
         ->add('locale', 'choice', array(
